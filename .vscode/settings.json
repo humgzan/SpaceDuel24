@@ -1,0 +1,12 @@
+{
+    "conventionalCommits.scopes": [
+        "app",
+        "joystick",
+        "renderer",
+        "display",
+        "audio",
+        "adc",
+        "spi",
+        "board"
+    ]
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.netbeans.org/ns/project/1">
+    <type>com.microchip.mplab.nbide.embedded.makeproject</type>
+    <configuration>
+        <data xmlns="http://www.netbeans.org/ns/make-project/1">
+            <name>SpaceDuel24</name>
+            <creation-uuid>4ec93839-70cd-4c1d-a358-2618b9a6b407</creation-uuid>
+            <make-project-type>0</make-project-type>
+            <sourceEncoding>ISO-8859-1</sourceEncoding>
+            <make-dep-projects/>
+            <sourceRootList>
+                <sourceRootElem>../code/app</sourceRootElem>
+                <sourceRootElem>../code/audio</sourceRootElem>
+                <sourceRootElem>../code/board</sourceRootElem>
+                <sourceRootElem>../code/display</sourceRootElem>
+                <sourceRootElem>../code/drivers</sourceRootElem>
+                <sourceRootElem>../code/joystick</sourceRootElem>
+            </sourceRootList>
+            <confList>
+                <confElem>
+                    <name>default</name>
+                    <type>2</type>
+                </confElem>
+            </confList>
+            <formatting>
+                <project-formatting-style>false</project-formatting-style>
+            </formatting>
+        </data>
+    </configuration>
+</project>

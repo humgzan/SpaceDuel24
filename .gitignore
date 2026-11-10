@@ -1,0 +1,9 @@
+# MPLAB X build and debug output
+/SpaceDuel24.X/build/
+/SpaceDuel24.X/dist/
+/SpaceDuel24.X/debug/
+/SpaceDuel24.X/.generated_files/
+
+# Machine-specific MPLAB X settings
+/SpaceDuel24.X/nbproject/private/
+/SpaceDuel24.X/nbproject/Makefile-local-*.mk
