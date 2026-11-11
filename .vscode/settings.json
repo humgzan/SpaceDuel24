@@ -8,6 +8,8 @@
         "adc",
         "spi",
         "board",
-        "wiki"
+        "hardware",
+        "wiki",
+        "project"
     ]
 }

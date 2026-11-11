@@ -24,16 +24,28 @@ The game works in logical coordinates. For example, a hit changes the game state
 | `code/audio/audio.c` | Note sequences, sound selection, playback timing, and OC/PWM control while audio is its only user. | Implements background music and sound effects |
 | `code/audio/audio.h` | Audio event types and public functions. | Initialize audio, request a sound, and update playback using time |
 
-## 3. Screen and PIC24 drivers
+## 3. PIC24 drivers
 
 | File | What goes here | Interface |
 | --- | --- | --- |
-| `code/display/display_st7796.c` | ST7796 reset and startup commands, address windows, and pixel transfers. | Implements basic drawing operations using SPI |
-| `code/display/display_st7796.h` | Screen dimensions and public drawing operations. | Initialize the screen, fill a rectangle, and draw a sprite |
 | `code/drivers/adc.c` and `adc.h` | ADC peripheral setup, channel selection, and sample reads. | Initialize the ADC and return raw readings for a requested channel |
 | `code/drivers/spi.c` and `spi.h` | SPI peripheral setup and transfers. | Initialize the bus and send bytes or a block of data |
 
-The supplied ST7796 code currently includes SPI setup and game drawing helpers. Keep it together for the first screen test. During integration, move field, timer, bar, and effect drawing into the renderer. Move shared pin and PPS setup to the board layer. Leave ST7796 commands in the screen driver.
+### Driver Layer Design Rules & Contracts
+
+1. **Strict Hardware Abstraction (Zero Game Logic)**:
+   - Drivers must remain 100% reusable and decoupled from game mechanics.
+   - `adc.c` strictly samples analog channels and returns raw 10-bit integer readings (`0` to `1023`). Do not place joystick deadzone filters, sensitivity scaling, or center calibration logic here (handled exclusively by `code/joystick/joystick.c`).
+   - `spi.c` strictly manages the SPI bus state, clock timing, and byte/buffer transmissions. Do not embed display-specific command sequences, font data, or framebuffer logic here (handled exclusively by `code/display/renderer.c`).
+
+2. **Downstream-Only Dependency**:
+   - Driver implementations (`.c`) may only `#include` their matching public header (`adc.h`, `spi.h`), `"board/pinmap.h"`, toolchain headers (`<xc.h>`), and standard C library headers (`<stdint.h>`, `<stdbool.h>`).
+   - Drivers must **never** `#include` subsystem headers (`joystick.h`, `renderer.h`, `audio.h`) or application headers (`game.h`).
+
+3. **Subsystem Ownership**:
+   - **`code/drivers/adc.*`**: Owned and consumed by the **Joystick Subsystem** (`code/joystick/joystick.c`) for polling analog joystick axes.
+   - **`code/drivers/spi.*`**: Owned and consumed by the **Display Subsystem** (`code/display/renderer.c`) for driving the ST7796 SPI graphics panel.
+   - *Note on Audio*: Audio tone generation utilizes the PIC24 Output Compare peripheral (OC1 via Timer2 PWM per `docs/resources.md`) and is encapsulated directly within `code/audio/audio.c` without requiring a standalone driver file.
 
 ## 4. Board setup
 

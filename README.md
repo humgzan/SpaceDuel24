@@ -33,23 +33,20 @@ All paths below are relative to the repository root.
 | `SpaceDuel24.X/` | MPLAB X project and shared build settings |
 | `docs/` | Architecture, resource assignments, and test records |
 | `hardware/` | Schematics, wiring diagrams, and hardware notes when added |
-| `wiki/` | Reviewed Markdown sources for the published Wiki pages |
 
 Open the repository root in VS Code. Open `SpaceDuel24.X/` in MPLAB X.
 
 ## 3. Setup and team guides
 
-Start with the [Wiki](https://github.com/humgzan/SpaceDuel24/wiki). The page sources below are also readable before the Wiki is published.
+All setup guides, team policies, and environment documentation are hosted directly on the [Project Wiki](https://github.com/humgzan/SpaceDuel24/wiki).
 
-| Guide | Page source |
-| --- | --- |
-| Navigation and reading order | [Home](wiki/Home.md) |
-| Git, identity, VS Code extensions, and cloning | [Development Setup](wiki/Development-Setup.md) |
-| Branches, commits, pull requests, and merging | [Team Workflow](wiki/Team-Workflow.md) |
-| MPLAB X setup, builds, programming, and new files | [Build and Program](wiki/Build-and-Program.md) |
-| Common problems and Wiki publication | [FAQ](wiki/FAQ.md) |
-
-Wiki sources are reviewed in the main repository. Publishing to the Wiki is a separate step described in the FAQ.
+| Guide | Description | Online Wiki Link |
+| --- | --- | --- |
+| **Home** | Overview, reading order, and document hierarchy | [Wiki Home](https://github.com/humgzan/SpaceDuel24/wiki) |
+| **Development Setup** | Git, identity, VS Code extensions, and repository cloning | [Development Setup](https://github.com/humgzan/SpaceDuel24/wiki/Development-Setup) |
+| **Team Workflow** | Branching model, Conventional Commits, PRs, and review rules | [Team Workflow](https://github.com/humgzan/SpaceDuel24/wiki/Team-Workflow) |
+| **Build and Program** | MPLAB X configuration, toolchains, build targets, and flashing | [Build and Program](https://github.com/humgzan/SpaceDuel24/wiki/Build-and-Program) |
+| **FAQ** | Common development troubleshooting and hardware questions | [FAQ](https://github.com/humgzan/SpaceDuel24/wiki/FAQ) |
 
 ## 4. Quick start
 
