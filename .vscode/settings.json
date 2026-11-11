@@ -7,6 +7,7 @@
         "audio",
         "adc",
         "spi",
-        "board"
+        "board",
+        "wiki"
     ]
 }

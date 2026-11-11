@@ -16,8 +16,8 @@ The game works in logical coordinates. For example, a hit changes the game state
 
 | File | What goes here | Interface |
 | --- | --- | --- |
-| `code/joystick/joystick.c` | Startup center calibration, dead zone, sensitivity curve, and button debounce. Keep separate state for each player. | Converts raw ADC values and button samples into player joystick |
-| `code/joystick/joystick.h` | Raw sample and processed joystick types. | Initialize or calibrate a controller, update from a sample, and return X/Y direction and a fire event |
+| `code/joystick/joystick.c` | Startup center calibration, dead zone, sensitivity curve, and button debounce. Keep separate state for each player. | Converts raw ADC values and button samples into player input |
+| `code/joystick/joystick.h` | Raw sample and processed input types. | Initialize or calibrate a controller, update from a sample, and return X/Y direction and a fire event |
 | `code/display/renderer.c` | Map game coordinates to screen pixels. Draw the field, ships, bullets, timer, bars, and result screen. Track areas that need to be redrawn. | Implements drawing from the current game state |
 | `code/display/renderer.h` | Renderer entry points and any data needed by its caller. | Initialize the view and render a game update |
 | `code/display/graphics_assets.h` | Display assets such as sprite bitmaps, character shapes, and color definitions. | Asset data for display code |
@@ -55,3 +55,7 @@ Keep the shared pin, timer, and interrupt assignments in [Hardware Resources](re
 | Board time → game and audio | Time units and whether each update receives a timestamp or elapsed time. Use the same time base for both modules. |
 
 Put public declarations in the module header and keep internal helpers in the source file. Write the agreed ranges, units, and event behavior next to the declarations so callers can use them directly.
+
+## Development guides
+
+See the [SpaceDuel24 Wiki](https://github.com/humgzan/SpaceDuel24/wiki) for setup, team workflow, and MPLAB X instructions. Keep module responsibilities and interface agreements in this document.
