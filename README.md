@@ -33,7 +33,6 @@ All paths below are relative to the repository root.
 | `SpaceDuel24.X/` | MPLAB X project and shared build settings |
 | `docs/` | Architecture, resource assignments, and test records |
 | `hardware/` | Schematics, wiring diagrams, and hardware notes when added |
-| `wiki/` | Reviewed Markdown sources for the published Wiki pages |
 
 Open the repository root in VS Code. Open `SpaceDuel24.X/` in MPLAB X.
 
